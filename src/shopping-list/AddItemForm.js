@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 
 export default class AddItemForm extends Component {
+onSubmitForm = (e) => {
+    e.preventDefault()
+    this.props.onAddItem(e.target.itemToAdd.value)
+}
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.onSubmitForm}>
                 <input 
+                name='itemToAdd'
                 type='text'
                 placeholder='carrots'
                 aria-label='Shopping list item'
